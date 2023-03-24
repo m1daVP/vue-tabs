@@ -38,7 +38,7 @@
         border-color: transparent; }
   .vue-tabs .nav .nav-divider {
     height: 1px;
-    margin: 9px 0;
+    margin: calc($line-height-computed, 2) -1 0;
     overflow: hidden;
     background-color: #e5e5e5; }
   .vue-tabs .nav > li > a > img {

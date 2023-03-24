@@ -1,6 +1,6 @@
 /*!
  * vue-nav-tabs v0.6.0
- * (c) 2023-present cristij <joracristi@gmail.com>
+ * (c) 2023-present m1daVP <denial.trombol@gmail.com>
  * Released under the MIT License.
  */
 import _mergeJSXProps from 'babel-helper-vue-jsx-merge-props';
