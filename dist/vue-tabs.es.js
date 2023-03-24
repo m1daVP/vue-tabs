@@ -3,62 +3,7 @@
  * (c) 2023-present cristij <joracristi@gmail.com>
  * Released under the MIT License.
  */
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-	typeof define === 'function' && define.amd ? define(['exports'], factory) :
-	(factory((global.vueTabs = {})));
-}(this, (function (exports) { 'use strict';
-
-var nestRE = /^(attrs|props|on|nativeOn|class|style|hook)$/;
-
-var babelHelperVueJsxMergeProps = function mergeJSXProps(objs) {
-  return objs.reduce(function (a, b) {
-    var aa, bb, key, nestedKey, temp;
-    for (key in b) {
-      aa = a[key];
-      bb = b[key];
-      if (aa && nestRE.test(key)) {
-        // normalize class
-        if (key === 'class') {
-          if (typeof aa === 'string') {
-            temp = aa;
-            a[key] = aa = {};
-            aa[temp] = true;
-          }
-          if (typeof bb === 'string') {
-            temp = bb;
-            b[key] = bb = {};
-            bb[temp] = true;
-          }
-        }
-        if (key === 'on' || key === 'nativeOn' || key === 'hook') {
-          // merge functions
-          for (nestedKey in bb) {
-            aa[nestedKey] = mergeFn(aa[nestedKey], bb[nestedKey]);
-          }
-        } else if (Array.isArray(aa)) {
-          a[key] = aa.concat(bb);
-        } else if (Array.isArray(bb)) {
-          a[key] = [aa].concat(bb);
-        } else {
-          for (nestedKey in bb) {
-            aa[nestedKey] = bb[nestedKey];
-          }
-        }
-      } else {
-        a[key] = b[key];
-      }
-    }
-    return a;
-  }, {});
-};
-
-function mergeFn(a, b) {
-  return function () {
-    a && a.apply(this, arguments);
-    b && b.apply(this, arguments);
-  };
-}
+import _mergeJSXProps from 'babel-helper-vue-jsx-merge-props';
 
 var VueTabs = {
     name: 'vue-tabs',
@@ -246,7 +191,7 @@ var VueTabs = {
                 var active = _this.activeTabIndex === index;
                 return h(
                     'li',
-                    babelHelperVueJsxMergeProps([{
+                    _mergeJSXProps([{
                         attrs: { name: 'tab',
                             id: 't-' + tabId,
                             'aria-selected': active,
@@ -269,7 +214,7 @@ var VueTabs = {
                     }]),
                     [_this.textPosition === 'top' && _this.renderTabTitle(index, _this.textPosition), h(
                         'a',
-                        babelHelperVueJsxMergeProps([{
+                        _mergeJSXProps([{
                             attrs: { href: '#',
 
                                 role: 'tab' },
@@ -428,10 +373,5 @@ if (typeof window !== 'undefined' && window.Vue) {
   window.VueTabs = VueTabsPlugin;
 }
 
-exports['default'] = VueTabsPlugin;
-exports.VueTabs = VueTabs;
-exports.VTab = VTab;
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-})));
+export { VueTabs, VTab };
+export default VueTabsPlugin;
