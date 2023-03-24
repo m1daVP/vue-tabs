@@ -1,5 +1,5 @@
 /*!
- * vue-nav-tabs v0.6.0
+ * vue-nav-tabs v0.6.1
  * (c) 2023-present m1daVP <denial.trombol@gmail.com>
  * Released under the MIT License.
  */
