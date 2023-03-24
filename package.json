@@ -3,7 +3,7 @@
   "version": "0.5.7",
   "description": "A vue based tab component",
   "repository": {
-    "url": "cristijora/vue-tabs",
+    "url": "m1daVP/vue-tabs",
     "type": "git"
   },
   "main": "dist/vue-tabs.common.js",
