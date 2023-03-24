@@ -27,7 +27,7 @@
     "dev": "poi --port 5000",
     "deploy": "npm run build:example && gh-pages -d example/dist"
   },
-  "author": "cristij <joracristi@gmail.com>",
+  "author": "m1daVP <denial.trombol@gmail.com>",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
