@@ -6,7 +6,7 @@
     "url": "m1daVP/vue-tabs",
     "type": "git"
   },
-  "main": "dist/vue-tabs.es.js",
+  "main": "dist/vue-tabs.js",
   "unpkg": "dist/vue-tabs",
   "poi": {
     "entry": "dev/main.js",
